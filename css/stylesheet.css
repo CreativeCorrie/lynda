@@ -1,7 +1,39 @@
+/****************************
+*Style Sheet for Lynda.com Project*
+****************************/
+
 body {
-	background-color: #270722;
+	background-color: #ffefce;
+}
+
+h1 {
+	font-family: "American Typewriter", sans-serif;
+	text-align: center;
 }
 
 h1,
 .boxtitle {
 	color: darkblue;
+}
+
+.boxtitle {
+	font: 1.5em 'Raleway', sans-serif;
+}
+
+.boxheading {
+	font: 1.4em "News Cycle", sans-serif;
+}
+
+.box {
+	padding: 0 5%;
+	background-color: #4c86a0;
+	color: white;
+	font-family: 'News Cycle', sans-serif;
+}
+
+.box,
+.boxtitle {
+	margin: 0 10% 0;
+}
+
+/* 	cool color: dodger blue */
