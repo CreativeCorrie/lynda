@@ -1,37 +1,57 @@
-
-
-
 /****************************
 *Style Sheet for Lynda.com Project*
 ****************************/
 
 body {
-	background-color: #ffefce;
+	background-color: #0f5f7f;
 }
 
 h1 {
+	background-color: #0f5f7f;
+	color: #e8df6d;
 	font-family: 'Roboto', sans-serif;
+	font-size: 4em;
+	font-weight: bold;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	text-align: center;
 }
 
-h1,
 .boxtitle {
-	color: darkblue;
-}
-
-.boxtitle {
-	font: 1.5em 'Raleway', sans-serif;
+	color: #e8df6d;
+	font-family: 'Roboto', sans-serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding: 20px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	text-align: inherit;
 }
 
 .boxheading {
-	font: 1.4em "News Cycle", sans-serif;
+	color: #e8df6d;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin-top: 55px;
+	margin-bottom: 55px;
+	text-align: inherit;
 }
 
 .box {
 	padding: 0 5%;
-	background-color: #4c86a0;
-	color: white;
-	font-family: 'News Cycle', sans-serif;
+	background-color: #0f5f7f;
+	color: #fefef7;
+	font-family: 'Roboto', sans-serif;
+	margin-top: 55px;
+	margin-bottom: 55px;
 }
 
 .box,
