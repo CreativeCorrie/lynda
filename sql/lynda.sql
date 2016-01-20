@@ -23,12 +23,12 @@ CREATE TABLE courses (
 CREATE TABLE viewed (
 	profileId INT UNSIGNED NOT NULL,
 	coursesId INT UNSIGNED NOT NULL,
-	viewedID INT UNSIGNED NOT NULL,
+	viewedId INT UNSIGNED NOT NULL,
 	viewedDate DATETIME NOT NULL,
 	shared VARCHAR (140)NOT NULL,
 	INDEX(profileId),
 	INDEX(coursesId),
 	FOREIGN KEY(profileId) REFERENCES  profile(profileId),
 	FOREIGN KEY(coursesId) REFERENCES courses(coursesId),
-	PRIMARY KEY(profileId, viewedID)
+	PRIMARY KEY(profileId, viewedId)
 );
