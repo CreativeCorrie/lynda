@@ -13,7 +13,7 @@ CREATE TABLE profile (
 CREATE TABLE courses (
 	coursesId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	profileId INT UNSIGNED NOT NULL,
-	courseContent VARCHAR (140) NOT NULL,
+	courseContent VARCHAR (64000) NOT NULL,
 	courseDate DATETIME NOT NULL,
 	INDEX(profileId),
 	FOREIGN KEY(profileId) REFERENCES profile(profileId),
@@ -25,7 +25,6 @@ CREATE TABLE viewed (
 	coursesId INT UNSIGNED NOT NULL,
 	viewedId INT UNSIGNED NOT NULL,
 	viewedDate DATETIME NOT NULL,
-	shared VARCHAR (140)NOT NULL,
 	INDEX(profileId),
 	INDEX(coursesId),
 	FOREIGN KEY(profileId) REFERENCES  profile(profileId),
