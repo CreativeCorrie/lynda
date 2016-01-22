@@ -9,7 +9,10 @@
  * @author Corrie Hooker <creativecorrie@gmail.com>
  **/
 
-class ProfileId {
+require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
+$pdo = connectToEncryptedMySQL("etc/apache2/data-design/vhooker1.ini");
+
+class Profile {
 	/**
 	 * id for user; this is the primary key
 	 * @var int $profileId
