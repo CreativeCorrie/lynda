@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ProfileId, a tool to heal a player
  *
@@ -43,12 +44,17 @@ class ProfileId {
 	 **/
 	public function setProfileId($newProfileId) {
 		//first, apply the filter to the input
-		$newProfileId=filter_var($newProfileId, FILTER_VALIDATE_INT);
-			//if filter_var rejects the new id, throw and Exception
+		//base case: if the tweet id is null, this a new tweet without a mySQL assigned id (yet)
+		if($newProfileId === null) {
+			$this->profileId = null;
+			return;
+		}
+		$newProfileId=filter_var($newProfileId, FILTER_VALIDATE_EMAIL);
+		//if filter_var rejects the new id, throw and Exception
 		if($newProfileId === false) {
 			throw(new InvalidArgumentException("profile id is not an integer"));
 		}
-		 //if the profile id is out of range, throw an exception
+		//if the profile id is out of range, throw an exception
 		if($newProfileId <= 0) {
 			throw(new RangeException("profile if must be and email address"));
 		}
