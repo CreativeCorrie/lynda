@@ -1,30 +1,34 @@
 <?php
 
 /**
- * ProfileId, a tool to heal a player
+ * Typical Profile for Lynda.com
  *
- * A ProfileId is the generic name for the users profile
- * A person must provide this information to be able to utilize the Lynda.com resources
+ * This Profile is an abbreviated example of data collected and stored about a user for Lynda.com
+ * * A person must provide this information to be able to utilize the Lynda.com resources
  *
  * @author Corrie Hooker <creativecorrie@gmail.com>
  **/
 
 class Profile {
+
 	/**
 	 * id for user; this is the primary key
 	 * @var int $profileId
 	 **/
 	private $profileId;
+
 	/**
 	 * email, for communication purposes
 	 * @var int $email
 	 **/
 	private $email;
+
 	/**
 	 * name of user
 	 * @var int $name
 	 **/
 	private $name;
+
 	/**
 	/**
 	 * accessor method for profile id
@@ -62,3 +66,5 @@ class Profile {
 		$this->profileId = $newProfileId;
 	}
 }
+?>
+
