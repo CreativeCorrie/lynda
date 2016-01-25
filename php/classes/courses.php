@@ -17,7 +17,8 @@ class Courses {
 	 **/
 	private $profileId;
 	/**
-	 *id for the course table of contents.
+	 *content is the content of the courses, limited to 64000 characters.
+	 * @var string content
 	 **/
 	private $content;
 	/**
@@ -32,6 +33,7 @@ class Courses {
 	 *id for the course video.
 	 **/
 	private $courseVideo;
+
 	/**
 	 * accessor method for courses id
 	 *
@@ -40,6 +42,7 @@ class Courses {
 	public function getCoursesId() {
 		return ($this->coursesId);
 	}
+
 	/**
 	 * murator method for courses id
 	 *
@@ -47,10 +50,10 @@ class Courses {
 	 * @throws UnexpectedValueException if $newCourseId is not an integer
 	 **/
 	public function setCoursesId($newCoursesId) {
-		//verify the profile id is valid
+		//verify the course id is valid
 		$newCoursesId = filter_var($newCoursesId, FILTER_VALIDATE_INT);
 		if($newCoursesId === false) {
-			throw(new UnexpectedValueException("course id is not a valid integer:"));
+			throw(new UnexpectedValueException("course id is not a valid integer"));
 		}
 		//convert and store the courses id
 		$this->coursesId = intval($newCoursesId);
@@ -71,4 +74,91 @@ class Courses {
 	 * @param int $newProfileId new mavle of profile id
 	 * @throws UnexpectedValueException if $newProfileId is not an integer.
 	 **/
+	public function setProfileId($newProfileId) {
+		//verify the profile id is valid
+		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		if($newProfileId === false) {
+			throw(new UnexpectedValueException("profile id is not a valid integer"));
+		}
+		//convert and store the profile id
+		$this->profileId = intval($newProfileId);
+	}
+
+	/**
+	 * accessor method for content
+	 *
+	 * @return string of content
+	 **/
+	public function getContent() {
+		return ($this->content);
+	}
+
+	/**
+	 * Mutator method for content
+	 * @param string $newContent new value of copy
+	 * @throws InvalidArgumentException if copy is only non sanitized values
+	 * @throws RangeException if copy will not fit int he database
+	 **/
+	public function setContent($newContent) {
+		$newContent = filter_var($newContent, FILTER_VALIDATE_INT);
+		//Exception if only non-sanitized values
+		if($newContent === false) {
+			throw(new InvalidArgumentException("content is not a valid string"));
+		}
+		//Exception if input will not fit in the database
+		if(strlen($newContent) > 64000) {
+			throw(new RangeException("content is too large"));
+		}
+		//convert and store the content
+		$this->content = $newContent;
+	}
+
+	/**
+	 * accessor method for courseDate - published time
+	 *
+	 * @return CourseDate value of published time
+	 **/
+	public function getCourseDate() {
+		return ($this->courseDate);
+	}
+
+	/**
+	 * Murator method for course date and time
+	 * @param mixed $newCourseDate published time as a DateTime object or string (or null to lead current time)
+	 * @throws InvalidArgumentException if $newCourseDate is not a valid object or string
+	 * @throws RangeException if $newCourseDate is a date that does not exist
+	 **/
+	public function setCourseDate($newCourseDate) {
+		//if date is null, use current time and date
+		if($newCourseDate === null) {
+			$this->coursesId = $newCourseDate;
+		}
+	}
+
+	/**
+	 * accessor method for courseTranscript - transccript of courses
+	 *
+	 * @return string for transcript
+	 **/
+	public function getCourseTranscript() {
+		return ($this->courseTranscript);
+	}
+	/**
+	 * Mutator method for transcript
+	 * @param string $newCourseTranscript new value of transcript
+	 * @throws InvalidArgumentException if transcript is only non sanitized values
+	 * @throws RangeException if transcript will not fit int he database
+	 **/
+	public function setCourseTranscript($newCourseTranscript) {
+		$newCourseTranscript = filter_var($newCourseTranscript, FILTER_VALIDATE_INT);
+		if($newCourseTranscript === false) {
+			throw(new InvalidArgumentException("transcript is not a valid string"));
+		}
+		//Exception if input will not fit in the database
+		if(strlen($newCourseTranscript) < 64000) {
+			throw(new RangeException("transcript is too large"));
+		}
+		//convert and store the transcript
+		$this->courseTranscript = $newCourseTranscript;
+	}
 }
