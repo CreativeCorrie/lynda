@@ -116,7 +116,7 @@ class Courses {
 	/**
 	 * accessor method for courseDate - published time
 	 *
-	 * @return CourseDate value of published time
+	 * @return courseDate value of published time
 	 **/
 	public function getCourseDate() {
 		return ($this->courseDate);
@@ -160,5 +160,32 @@ class Courses {
 		}
 		//convert and store the transcript
 		$this->courseTranscript = $newCourseTranscript;
+	}
+	/**
+	 * accessor method for courseVideo
+	 * @return int value of courseVideo
+	 **/
+	public function getCourseVideo() {
+		return ($this->courseVideo);
+	}
+
+	/**
+	 *Mutator method for courseVideo
+	 * @param int $newCourseVideo
+	 * @throws InvalidArgumentException if course video is an integer.
+	 * @throws RangeException if course video is negative
+	 **/
+	public function setCourseVideo($newCourseVideo) {
+		$newCourseVideo = filter_var($newCourseVideo, FILTER_VALIDATE_INT);
+		//Exception if course video is not an int
+		if($newCourseVideo === false) {
+			throw(new InvalidArgumentException("course video is not an integer"));
+		}
+		//Exception if course video is not in range
+		if($newCourseVideo <=0) {
+			throw(new RangeException("course video must be positive"));
+		}
+		//convert and store the course video
+		$this->courseVideo = $newCourseVideo;
 	}
 }
