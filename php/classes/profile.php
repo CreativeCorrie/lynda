@@ -6,7 +6,7 @@
  * This Profile is an abbreviated example of data collected and stored about a user for Lynda.com
  * * A person must provide this information to be able to utilize the Lynda.com resources
  *
- * @author Corrie Hooker <creativecorrie@gmail.com>
+ * @author Corrie Hooker <creativecorrie@gmail.com> <The Hackey Hooker.com>
  **/
 
 class Profile {
@@ -48,7 +48,7 @@ class Profile {
 	 **/
 	public function setProfileId($newProfileId) {
 		//first, apply the filter to the input
-		//base case: if the tweet id is null, this a new tweet without a mySQL assigned id (yet)
+		//base case: if the profile id is null, this a new profile without a mySQL assigned id (yet)
 		if($newProfileId === null) {
 			$this->profileId = null;
 			return;
@@ -66,5 +66,4 @@ class Profile {
 		$this->profileId = $newProfileId;
 	}
 }
-?>
 

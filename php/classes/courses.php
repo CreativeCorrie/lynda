@@ -116,7 +116,7 @@ class Courses {
 	/**
 	 * accessor method for courseDate - published time
 	 *
-	 * @return courseDate value of published time
+	 * @return int value of published time
 	 **/
 	public function getCourseDate() {
 		return ($this->courseDate);
