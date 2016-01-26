@@ -65,5 +65,67 @@ class Profile {
 		//finally, if we got here, we know it's a valid id  save it to the object
 		$this->profileId = $newProfileId;
 	}
+
+	/**
+	 * accessor method for email
+	 *
+	 * @return string value of email
+	 **/
+	public function getEmail() {
+		return ($this->email);
+	}
+
+	/**
+	 * Mutator method for email
+	 *
+	 * @param string $newEmail new value of email
+	 * @throws InvalidArgumentException if email is not a valid email address
+	 * @throws RangeException if email will not fit int he database
+	 **/
+	public function setEmail($newEmail) {
+		$newEmail = filter_var($newEmail, FILTER_VALIDATE_EMAIL);
+
+		//Exception if not a valid email address
+		if($newEmail === false) {
+			throw  (new InvalidArgumentException("email is not a valid email"));
+		}
+
+		//Exception if email will not fit in the database
+		if(strlen($newEmail) > 128) {
+			throw(new RangeException("email address is too large"));
+		}
+	}
+	/**
+	 * accessor method for name
+	 *
+	 * @return string for name
+	 **/
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * Mutator for name
+	 *
+	 * @param string $newName new value of name
+	 * @throws InvalidArgumentException if name is only non-sanitized string data
+	 * @throws RangeException if name will not fit in the database
+	 **/
+	public function setName($newName) {
+		$newName = filter_var($newName, FILTER_SANITIZE_STRING);
+
+		//Exception if input is only non-sanitized string data
+		if($newName === false) {
+			throw (new InvalidArgumentException("name is ot a valid string"));
+		}
+
+		//Exception if input will not fit in the database
+		if(strlen($newName) > 128) {
+			throw (new RangeException("name is too large"));
+		}
+
+		//convert and save the name
+		$this->name = $newName;
+	}
 }
 
